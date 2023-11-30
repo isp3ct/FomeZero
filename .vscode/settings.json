@@ -1,0 +1,14 @@
+{
+    "java.project.referencedLibraries": {
+        "include": [
+            "lib/**/*.jar",
+            "d:\\A\\mysql-connector-j-8.2.0.jar",
+            "d:\\mysql-connector-j-8.2.0\\mysql-connector-j-8.2.0.jar",
+            "Fome Zero/Doador/bin/mysql-connector-j-8.2.0.jar",
+            "Fome Zero/ProjetoFomeZero/bin/mysql-connector-j-8.2.0.jar"
+        ],
+        "exclude": [
+            "f:\\mysql-connector-j-8.2.0\\mysql-connector-j-8.2.0.jar"
+        ]
+    }
+}
