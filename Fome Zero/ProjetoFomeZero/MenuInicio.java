@@ -1,6 +1,3 @@
-//CRIADOR: JOÃO VICTOR DOS SANTOS COSTA
-
-
 import java.util.Scanner;
 
 public class MenuInicio {
@@ -15,17 +12,22 @@ public class MenuInicio {
         boolean continuar = true;
 
         while (continuar) {
-            System.out.print("Seja bem-vindo ao programa de doações UMC Solidária!\nVocê deseja:\n[1] Login\n[2] Cadastrar\n[0] Sair\n");
+            System.out.println("Seja bem-vindo ao programa de doações UMC Solidária!");
+            System.out.println("Você deseja:");
+            System.out.println("[1] Login");
+            System.out.println("[2] Cadastrar");
+            System.out.println("[0] Sair");
+
             int opcaoInicio = input.nextInt();
 
             switch (opcaoInicio) {
                 case 1:
-                Login.logar();
+                    Login.logar();
                     break;
 
                 case 2:
                     Registro registro = new Registro(new DAO());
-                    registro.registrar();              
+                    registro.registrar();
                     break;
 
                 case 0:
@@ -37,7 +39,6 @@ public class MenuInicio {
                     System.out.println("Opção inválida. Tente novamente.");
                     break;
             }
-            break;
         }
 
         input.close();

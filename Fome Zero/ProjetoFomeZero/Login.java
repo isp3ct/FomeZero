@@ -1,6 +1,3 @@
-//CRIADOR: GUILHERME DAL BIANCO.
-
-
 import java.util.Map;
 import java.util.Scanner;
 
@@ -10,7 +7,7 @@ public class Login {
         logar();
     }
 
-    public static boolean logar() {
+    public static void logar() {
         Scanner input = new Scanner(System.in);
         boolean validacaoEmail = false;
         boolean validacao = false;
@@ -26,27 +23,19 @@ public class Login {
                     String cpf = input.nextLine();
 
                     if (cpfValido(cpf)) {
-                        
-                        // Agora, chama o método selectLogin para validar o login
                         DAO dao = new DAO();
                         Map<String, Integer> usuarios = dao.selectLogin(email, cpf);
 
                         if (usuarios.get("tipoUsuarioId") == 1) {
-                            
                             System.out.println("Login bem-sucedido!");
                             Doador doador = new Doador();
                             doador.realizarDoacoes(usuarios.get("usuarioId"));
                             validacao = true;
-                        }
-                        
-                        else if (usuarios.get("tipoUsuarioId") == 2) {
-                            
+                        } else if (usuarios.get("tipoUsuarioId") == 2) {
                             System.out.println("Login bem-sucedido!");
                             Beneficiario.mostrarLocais();
                             validacao = true;
-                        } 
-                        
-                        else {
+                        } else {
                             System.out.println("Dados de login inválidos. Tente novamente.");
                         }
                     } else {
@@ -59,15 +48,15 @@ public class Login {
         }
 
         input.close();
-        return true;
     }
 
     public static boolean cpfValido(String cpf) {
-        return cpf.matches("\\d{11}");  //Verifica se o CPF tem 11 dígitos.
+        return cpf.matches("\\d{11}"); // Verifica se o CPF tem 11 dígitos.
     }
 
     public static boolean validarEmail(String email) {
-        String regex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";   //Validação BÁSICA para o e-mail. Podendo não cobrir todos os casos.
+        String regex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+        // Validação BÁSICA para o e-mail. Podendo não cobrir todos os casos.
         return email.matches(regex);
     }
 }

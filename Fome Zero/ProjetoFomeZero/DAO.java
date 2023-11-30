@@ -1,6 +1,3 @@
-//CRIADOR: JOÃO VICTOR DOS SANTOS COSTA
-
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,25 +8,18 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DAO {
-
     private Conexao conexao;
 
     public DAO() {
-        this.conexao = new Conexao(); // Certifique-se de que Conexao tenha um construtor padrão ou ajuste conforme necessário
+        this.conexao = new Conexao();
     }
-
-    // Restante do código...
 
     public void realizarSelectProdutos() {
         try (Connection connection = conexao.conectar()) {
-            // System.out.println("Conexão bem-sucedida!");
-
-            // Query SELECT
             String sql = "SELECT * FROM PRODUTOS";
             try (PreparedStatement statement = connection.prepareStatement(sql);
                  ResultSet resultSet = statement.executeQuery()) {
 
-                // Processar resultados
                 while (resultSet.next()) {
                     int idProduto = resultSet.getInt("IDPRODUTOS");
                     String descricao = resultSet.getString("DESCRICAO");
@@ -51,7 +41,7 @@ public class DAO {
                 statement.setInt(3, qtd);
                 statement.setInt(4, 1);
     
-                int linhasAfetadas = statement.executeUpdate(); // Usando executeUpdate()
+                int linhasAfetadas = statement.executeUpdate();
     
                 if (linhasAfetadas > 0) {
                     System.out.println("Doação inserida com sucesso!");
@@ -81,8 +71,7 @@ public class DAO {
                 if (linhasAfetadas > 0) {
                     ResultSet generatedKeys = statement.getGeneratedKeys();
                     if (generatedKeys.next()) {
-                        int usuarioId = generatedKeys.getInt(1);
-                        return usuarioId;
+                        return generatedKeys.getInt(1);
                     } else {
                         System.out.println("Falha ao obter o ID do usuário.");
                         return -1; // Retorna um valor padrão em caso de falha
@@ -98,15 +87,14 @@ public class DAO {
         }
     }
 
-        public Map<String, Integer> selectLogin(String email, String cpf) {
-
+    public Map<String, Integer> selectLogin(String email, String cpf) {
         Map<String, Integer> usuario = new HashMap<>();
 
         try (Connection connection = conexao.conectar()) {
             String sql = "SELECT * FROM USUARIO WHERE EMAIL = ? AND CPF = ?";
             try (PreparedStatement statement = connection.prepareStatement(sql)) {
                 statement.setString(1, email);
-                statement.setString(2, cpf);                
+                statement.setString(2, cpf);
                 ResultSet resultSet = statement.executeQuery();
                 while (resultSet.next()) {
                     int usuarioId = resultSet.getInt("IDUSUARIO");
@@ -114,7 +102,6 @@ public class DAO {
                     
                     usuario.put("usuarioId", usuarioId);
                     usuario.put("tipoUsuarioId", tipoUsuarioId);
-                    
                 }
             }
         } catch (SQLException e) {
@@ -122,6 +109,5 @@ public class DAO {
         }
 
         return usuario;
-
-        }     
+    }     
 }

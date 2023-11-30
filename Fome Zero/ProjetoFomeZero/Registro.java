@@ -1,6 +1,3 @@
-//CRIADOR: BRUNO DOS SANTOS PEREIRA DO NASCIMENTO
-
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -27,8 +24,6 @@ public class Registro {
         Scanner input = new Scanner(System.in);
         Double rendaMinima = 1320.0;
         boolean validacao = false;
-
-        // Estabelece a conexão com o banco de dados
 
         while (!validacao) {
             System.out.print("Para dar início ao projeto, precisamos do seu nome: ");
@@ -106,7 +101,7 @@ public class Registro {
                     limparConsole();
                     System.out.println("Registro feito com sucesso! Obrigado por participar dessa campanha!");
                     int usuarioId = dao.inserirDadosUsuario(nome, dataFormatada, email, cpf, escolhaRegistro);
-                    System.out.print("\nEsse é o doador"+usuarioId);
+                    System.out.print("\nEsse é o doador "+usuarioId);
                     Doador doador = new Doador();  
                     doador.realizarDoacoes(usuarioId);
                     break;
