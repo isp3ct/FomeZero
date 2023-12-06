@@ -1,3 +1,5 @@
+//CRIADOR: JOÃO VICTOR DOS SANTOS COSTA
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,10 +10,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DAO {
+
     private Conexao conexao;
 
     public DAO() {
-        this.conexao = new Conexao();
+        this.conexao = new Conexao(); // Certifique-se de que Conexao tenha um construtor padrão ou ajuste conforme necessário
     }
 
     public void realizarSelectProdutos() {
@@ -71,7 +74,8 @@ public class DAO {
                 if (linhasAfetadas > 0) {
                     ResultSet generatedKeys = statement.getGeneratedKeys();
                     if (generatedKeys.next()) {
-                        return generatedKeys.getInt(1);
+                        int usuarioId = generatedKeys.getInt(1);
+                        return usuarioId;
                     } else {
                         System.out.println("Falha ao obter o ID do usuário.");
                         return -1; // Retorna um valor padrão em caso de falha

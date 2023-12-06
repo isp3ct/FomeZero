@@ -1,6 +1,13 @@
-import java.util.*;
+//CRIADOR: RUAN PABLO SIMÃO.
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
 
 public class Beneficiario {
+
     private static Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -24,13 +31,13 @@ public class Beneficiario {
 
     public static void mostrarLocais() {
         System.out.println("Locais disponíveis para retirada da cesta básica:");
-        System.out.println("[1] PIB - Primeira Igreja Batista.\n" +
+        System.out.println("[1] PIB - Primeira Igreja Batista.\n" + //
                 "Se encontra em: R. Barão de Jaceguai, 1019 - Centro, Mogi das Cruzes - SP, 08780-100\n");
 
-        System.out.println("[2] Assembleia de Deus - Ministério Madureira\n" +
+        System.out.println("[2] Assembleia de Deus - Ministério Madureira\n" + //
                 "Se encontra em: R. Cabo Diogo Oliver, 737 - Vila Mogilar, Mogi das Cruzes - SP, 08773-000\n");
 
-        System.out.println("[3] Igreja Evangélica Bola de Neve\n" +
+        System.out.println("[3] Igreja Evangélica Bola de Neve\n" + //
                 "Se encontra em: Av. São Paulo, 33 - Jardim Armenia, Mogi das Cruzes - SP, 08780-570\n");
     }
 

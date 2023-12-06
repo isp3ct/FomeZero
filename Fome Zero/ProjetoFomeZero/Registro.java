@@ -1,3 +1,5 @@
+//CRIADOR: BRUNO DOS SANTOS PEREIRA DO NASCIMENTO
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -16,8 +18,9 @@ public class Registro {
         this.dao = dao;
     }
 
-    public void main(String[] args) {
-        registrar();
+    public static void main(String[] args) {
+        Registro registro = new Registro(new DAO());
+        registro.registrar();
     }
 
     public void registrar() {
@@ -37,7 +40,6 @@ public class Registro {
         }
 
         validacao = false;
-        limparConsole();
 
         while (!validacao) {
             System.out.print("Insira a sua data de nascimento em formato (dia/mes/ano por extenso):  ");
@@ -58,7 +60,6 @@ public class Registro {
         }
 
         validacao = false;
-        limparConsole();
 
         while (!validacao) {
             System.out.print("Para dar continuação, me fale seu e-mail: ");
@@ -73,7 +74,6 @@ public class Registro {
         }
 
         validacao = false;
-        limparConsole();
 
         while (!validacao) {
             System.out.print("OK, vou precisar do seu CPF: ");
@@ -88,7 +88,6 @@ public class Registro {
         }
 
         validacao = false;
-        limparConsole();
 
         while (!validacao) {
             System.out.println("Agora para finalizar, você é:\n[1] Doador\n[2] Beneficiário");
@@ -101,7 +100,6 @@ public class Registro {
                     limparConsole();
                     System.out.println("Registro feito com sucesso! Obrigado por participar dessa campanha!");
                     int usuarioId = dao.inserirDadosUsuario(nome, dataFormatada, email, cpf, escolhaRegistro);
-                    System.out.print("\nEsse é o doador "+usuarioId);
                     Doador doador = new Doador();  
                     doador.realizarDoacoes(usuarioId);
                     break;

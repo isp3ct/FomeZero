@@ -14,7 +14,7 @@ Projeto dos alunos da UMC referente ao ODS (Objetivo de Desenvolvimento Sustent�
    - Instale a extensão chamada Extension Pack for Java, cujo ID da extensão é: `vscjava.vscode-java-pack`.
 
 4. **Inicializar e configurar o MySql:**
-   - Inicialize o MySql e crie uma conexão com as seguintes configurações:
+   - Inicialize o MySql e crie uma conexão com as seguintes configurações ou as configurações da sua máquina: 
      - Nome da conexão: `FomeZero`
      - Hostname: `127.0.0.1`
      - Porta: `3306`
